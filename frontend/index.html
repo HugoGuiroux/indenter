@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset=utf-8>
+        <title>Indent.er</title>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script type="text/javascript">
+            $(document).ready(function () {
+
+                /* Attach a submit handler to the form */
+                $("#code").submit(function(event) {
+                    /* Stop form from submitting normally */
+                    event.preventDefault();
+
+                    /* Get some values from elements on the page: */
+                    var values = $(this).serialize();
+
+                    $.post( "/request", values, function( data ) {
+                        if (data.Error) {
+                            alert(data.Error);
+                        } else {
+                            $("#body").val(data.Body);
+                        }
+                    }, "json");
+                });
+            });
+        </script>
+        <form id="code" action="#" method="post">
+            <textarea id="body" name="body" style="width: 80%; height: 300px;"></textarea>
+            <input type="submit" />
+        </form>
+    </body>
+</html>
