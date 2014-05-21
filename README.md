@@ -55,7 +55,7 @@ fetched whenever a front end needs the list of available workers.
 
 ## To go further...
 I wanted to let Indenter as simple as possible in order to be easily reusable by
-any other projects (the code is under GPLv3 license).
+any other projects (the code is under BSD license).
 
 Some possible improvements/usages:
 
